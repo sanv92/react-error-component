@@ -8,8 +8,12 @@ type Props = {
   }
 };
 
+const defaultStyle = {
+  color: '#ff0000',
+}
+
 const ErrorText = ({ data }: Props) => (
-  <p>
+  <p style={defaultStyle}>
     {data.detail}
   </p>
 )

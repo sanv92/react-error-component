@@ -1,25 +1,18 @@
 // @flow
 import * as React from 'react'
-
-
-const renderChildren = (children: React.Node, error: {data: Object}) => (
-  React.Children.map(children, child => (
-    React.cloneElement(child, {
-      data: error,
-    })
-  ))
-)
+import ErrorText from './error-text'
 
 
 type Props = {
-  children: React.Node,
   data: Object,
   type: string,
 };
 
-const Errors = ({children, data, type}: Props) => (
+const Errors = ({data, type}: Props) => (
   <div>
-    {data.filter(error => error.type === type).map(error => renderChildren(children, error))}
+    {data.filter(error => error.type === type).map(error => (
+      <ErrorText key={error.detail} data={error} />
+    ))}
   </div>
 )
 
