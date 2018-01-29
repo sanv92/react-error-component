@@ -1,0 +1,7 @@
+lib
+.cache
+node_modules
+.git
+dist
+src/__tests__
+**/*.test.js
